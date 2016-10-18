@@ -1,0 +1,13 @@
+version: '2'
+services:
+  experimental-app:
+    build: .
+    volumes:
+      - './experimental-app:/app'
+    depends_on:
+      - rethinkdb
+    environment:
+      RETHINKDB_URL: rethinkdb://rethinkdb/experimental_app_db
+
+  rethinkdb:
+    image: rethinkdb:2.3.5
